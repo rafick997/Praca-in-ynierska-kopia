@@ -1,0 +1,66 @@
+﻿@model IPagedList<Przychodnia_medyczna.Models.Patient>
+    @using PagedList;
+@using PagedList.Mvc;
+
+
+
+<h2>Lista pacjentów</h2>
+
+<p>
+    @Html.ActionLink("Dodaj nowego pacjenta", "RegisterPatient")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Email")
+        </th>
+
+        <th>
+            @Html.DisplayName("Name")
+        </th>
+        <th>
+            @Html.DisplayName("Last Name")
+        </th>
+
+        <th>
+            @Html.DisplayName("PhoneNumber")
+        </th>
+
+        <th>
+            @Html.DisplayName("PESEL")
+        </th>
+ 
+ 
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ApplicationUser.Email)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ApplicationUser.PhoneNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PESEL)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ApplicationUser.Id}) |
+            @Html.ActionLink("Details", "Details", new { id = item.ApplicationUser.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ApplicationUser.Id })
+        </td>
+    </tr>
+}
+
+</table>
+<div>
+    @Html.PagedListPager(Model, page => Url.Action("GetPatientsList", new { page }))
+</div>

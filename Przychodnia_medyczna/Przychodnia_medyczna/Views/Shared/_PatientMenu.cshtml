@@ -1,0 +1,10 @@
+﻿@using Przychodnia_medyczna.Models
+@using Microsoft.AspNet.Identity
+<li><a href="#intro">Główna</a></li>
+@{ var UserName = User.Identity.Name;
+
+ }
+<li><a href="@Url.Action("Details","Patients", new { id = User.Identity.GetUserId() })"><span>Mój profil</span></a></li>
+<li><a href="@Url.Action("GetTestResults","Patients")"><span>Moje badania</span></a></li>
+<li><a href="#first">First Section</a></li>
+<li><a href="#footer">Kontakt</a></li>

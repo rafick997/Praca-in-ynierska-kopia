@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "AddTestResult";
+}
+
+<h2 align="center">Wybierz rodzaj badania</h2>
+<ul style="list-style: none;">
+    <li><a href="@Url.Action("AddMorphology","Managers", new { TestResultId=ViewBag.TestResultId })" class="button small fit"><span>Badanie moczu</span></a></li>
+    <li><a href="@Url.Action("AddMorphology","Managers", new { TestResultId=ViewBag.TestResultId })" class="button small fit"><span>Morfologia krwi</span></a></li>
+    <li><a href="@Url.Action("AddMorphology","Managers", new { TestResultId=ViewBag.TestResultId })" class="button small fit"><span>Biochemia</span></a></li>
+    <li><a href="@Url.Action("AddMorphology","Managers", new { TestResultId=ViewBag.TestResultId })" class="button small fit"><span>Endokrynologia</span></a></li>
+</ul>
+

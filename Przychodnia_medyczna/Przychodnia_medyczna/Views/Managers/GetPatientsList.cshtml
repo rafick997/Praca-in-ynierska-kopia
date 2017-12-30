@@ -1,0 +1,89 @@
+﻿@model IPagedList<Przychodnia_medyczna.Models.Patient>
+@using PagedList;
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "GetPatientsList";
+}
+<h2>    Pacjenci</h2>
+<p>
+    <em class="fa fa-user-plus">&nbsp;</em> @Html.ActionLink("Zarejestruj nowego pacjenta", "RegisterPatient", "SuperAdmins")
+</p>
+
+<p>
+    @using (Html.BeginForm("GetPatientsList", "Managers", FormMethod.Get))
+    {
+        <b>Szukaj według:</b>
+        <input type="radio" name="searchBy" id="radio-1"value="UserName" checked> 
+        <label for="radio-1"><span class="radio">Nazwa użytkownika</span></label>
+       
+        <input type="radio" name="searchBy" id="radio-2" value="PESEL" >
+        <label for="radio-2"><span class="radio">Numer PESEL</span></label>
+     
+        <br />
+        @Html.TextBox("search") <input type="submit" value="Znajdź" />
+    }
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Email")
+        </th>
+
+        <th>
+            @Html.DisplayName("Imię")
+        </th>
+
+        <th>
+            @Html.DisplayName("Numer kontaktowy")
+        </th>
+
+        <th>
+            @Html.DisplayName(" Numer PESEL")
+        </th>
+      
+        <th>
+            @Html.DisplayName(" Wykonaj akcje")
+        </th>
+
+
+        <th></th>
+    </tr>
+    @if (Model.Count() == 0)
+    {
+        <tr>
+            <td colspan="5">Brak użytkowników spełniających dane kryterium wyszukiwania</td>
+        </tr>
+    }
+    else
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApplicationUser.Email)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApplicationUser.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApplicationUser.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PESEL)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ApplicationUser.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ApplicationUser.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ApplicationUser.Id })
+                </td>
+            </tr>
+        }
+    }
+
+
+</table>
+<div>
+    @Html.PagedListPager(Model, page => Url.Action("GetPatientsList", new { page }))
+</div>
+

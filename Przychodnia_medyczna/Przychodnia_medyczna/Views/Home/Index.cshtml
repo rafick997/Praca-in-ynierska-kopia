@@ -1,0 +1,20 @@
+﻿@using Microsoft.AspNet.Identity
+@{
+    ViewBag.Title = "Home Page";
+}
+@if (!(this.User.IsInRole("SuperAdmin")))
+ {
+    <div>
+        <h1>Misja KLabs</h1>
+        <p >
+            <span class="image right">
+                <img src="~/Content/images/medlab.jpg" />
+            </span>
+            Misją naszego Centrum Medycznego KLabs  jest  świadczenie  usług medycznych na najwyższym poziomie, w sposób przyjazny i rzetelny, w poszanowaniu praw pacjenta.
+            Dzięki pełnemu profesjonalizmowi, doskonale wykwalifikowanej kadrze medycznej, bardzo dobrej organizacji pracy oraz sprzętowi medycznemu najwyższej jakości – jesteśmy jednym z wiodących ośrodków badań klinicznych w Polsce.
+            Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. 
+            Integer ac pellentesque praesent. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus..
+         </p>
+    </div>
+ }
+

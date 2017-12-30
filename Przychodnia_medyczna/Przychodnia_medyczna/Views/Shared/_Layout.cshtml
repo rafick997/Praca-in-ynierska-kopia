@@ -1,0 +1,94 @@
+﻿@using Microsoft.AspNet.Identity
+@using Przychodnia_medyczna.Models
+<!DOCTYPE HTML>
+<!--
+    Stellar by HTML5 UP
+    html5up.net | ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+
+    <title>Przychodnia KLabs</title>
+    <link rel="shortcut icon" href="~/Content/images/logo_E3n_icon.ico" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="~/Scripts/jquery.min.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+
+
+    @Styles.Render("~/Content2/css")
+    @RenderSection("Scripts", required: false)
+</head>
+<body>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Header -->
+        <header id="header" class="alt">
+            <span class="logo"><img src="~/Content/template/Default/images/logo.png" height="80" width="80" /></span>
+            <h1>K<span>Labs</span></h1>
+            <p>
+                <b> Laboratorium Medyczne</b>
+            </p>
+        </header>
+
+        <!-- Nav -->
+        <nav id="nav">
+            <ul>
+                <li><a href="@Url.Action("Index","Home")"><span>Głowna</span></a></li>
+                <li><a href="#footer">Kontakt</a></li>
+                @if (Request.IsAuthenticated && this.User.IsInRole("Patient"))
+                {
+                    @Html.Partial("_PatientMenu")
+                }
+                @if (Request.IsAuthenticated && this.User.IsInRole("Manager"))
+                {
+                    @Html.Partial("_ManagerMenu")
+                }
+                @Html.Partial("_LoginPartial")
+            </ul>
+
+        </nav>
+
+        <!-- Main -->
+        <div id="main">
+            <section id="intro" class="main">
+
+
+
+                @RenderBody()
+
+            </section>
+
+
+        </div>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <section>
+                <h2>O nas</h2>
+                <p>Laboratorium medyczne Labs to polskie przedsiębiorstwo diagnostyczne, które oferuje szeroką opiekę medyczną: badania diagnostyczne, medycynę pracy, konsultacje u lekarzy pierwszego kontaktu oraz lekarzy specjalistów.</p>
+            </section>
+            @using (ApplicationDbContext db = new ApplicationDbContext())
+                {
+                    Laboratory lab = db.Laboratories.FirstOrDefault();
+                
+                <section>
+                    <h2>Kontakt</h2>
+                    <dl class="alt">
+                        <dt>Adres</dt>
+                        <dd> @lab.Street &bull; @lab.ZipCode &bull; @lab.City &bull; @lab.Country</dd>
+                        <dt>Telefon</dt>
+                        <dd>(+48) 258369147</dd>
+                        <dt>Email</dt>
+                        <dd><a href="#">KLabs@gmail.com</a></dd>
+                    </dl>
+                </section>
+            }
+        </footer>
+
+    </div>
+</body>
+</html>
