@@ -13,10 +13,9 @@
     <link rel="shortcut icon" href="~/Content/images/logo_E3n_icon.ico" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/jquery-1.11.1.min.js"></script>
+    @*<script src="~/Scripts/jquery.min.js"></script>*@
     @Scripts.Render("~/bundles/jquery")
-
-
     @Styles.Render("~/Content2/css")
     @RenderSection("Scripts", required: false)
 </head>
@@ -33,6 +32,7 @@
                 <b> Laboratorium Medyczne</b>
             </p>
         </header>
+
 
         <!-- Nav -->
         <nav id="nav">
@@ -90,5 +90,15 @@
         </footer>
 
     </div>
+    <script>
+function myFunction() {
+    var x = document.getElementById("nav");
+    if (x.className === "nav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
+    </script>
 </body>
 </html>

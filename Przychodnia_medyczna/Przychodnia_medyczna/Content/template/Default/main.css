@@ -2127,8 +2127,7 @@
 	input[type="radio"] {
 		-moz-appearance: none;
 		-webkit-appearance: none;
-		-ms-appearance: none;
-		appearance: none;
+	
 		display: block;
 		float: left;
 		margin-right: -2em;
@@ -2151,7 +2150,7 @@
 
 			input[type="checkbox"] + label:before,
 			input[type="radio"] + label:before {
-				-moz-osx-font-smoothing: grayscale;
+				
 				-webkit-font-smoothing: antialiased;
 				font-family: FontAwesome;
 				font-style: normal;
@@ -2283,14 +2282,14 @@
 		text-decoration: none;
 		-moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 		-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-		-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+
 		transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 		border-bottom: none;
 		position: relative;
 	}
 
 		.icon:before {
-			-moz-osx-font-smoothing: grayscale;
+	
 			-webkit-font-smoothing: antialiased;
 			font-family: FontAwesome;
 			font-style: normal;
@@ -2884,9 +2883,7 @@
 /* Statistics */
 
 	.statistics {
-		display: -moz-flex;
-		display: -webkit-flex;
-		display: -ms-flex;
+	
 		display: flex;
 		width: 100%;
 		margin: 0 0 3em 0;
@@ -2896,7 +2893,7 @@
 	}
 
 		.statistics li {
-			-moz-flex: 1;
+		
 			-webkit-flex: 1;
 			-ms-flex: 1;
 			flex: 1;
@@ -2993,19 +2990,15 @@
 /* Spotlight */
 
 	.spotlight {
-		display: -moz-flex;
-		display: -webkit-flex;
-		display: -ms-flex;
+	
 		display: flex;
-		-moz-align-items: center;
-		-webkit-align-items: center;
-		-ms-align-items: center;
+	
 		align-items: center;
 		margin: 0 0 2em 0;
 	}
 
 		.spotlight .content {
-			-moz-flex: 1;
+		
 			-webkit-flex: 1;
 			-ms-flex: 1;
 			flex: 1;
@@ -3036,7 +3029,7 @@
 		@media screen and (max-width: 980px) {
 
 			.spotlight {
-				-moz-flex-direction: column-reverse;
+			
 				-webkit-flex-direction: column-reverse;
 				-ms-flex-direction: column-reverse;
 				flex-direction: column-reverse;
@@ -3044,7 +3037,7 @@
 			}
 
 				.spotlight .content {
-					-moz-flex: 0 1 auto;
+					
 					-webkit-flex: 0 1 auto;
 					-ms-flex: 0 1 auto;
 					flex: 0 1 auto;
@@ -3057,7 +3050,7 @@
 					}
 
 				.spotlight .image {
-					-moz-flex: 0 1 auto;
+				
 					-webkit-flex: 0 1 auto;
 					-ms-flex: 0 1 auto;
 					flex: 0 1 auto;
@@ -3100,7 +3093,7 @@
 		}
 
 		#header.alt {
-			padding: 7em 5em 4em 5em ;
+			padding: 4em 5em 0.5em 5em ;
 		}
 
 			#header.alt h1 {
@@ -3110,11 +3103,11 @@
 			#header.alt > * {
 				-moz-transition: opacity 3s ease;
 				-webkit-transition: opacity 3s ease;
-				-ms-transition: opacity 3s ease;
+			
 				transition: opacity 3s ease;
 				-moz-transition-delay: 0.5s;
 				-webkit-transition-delay: 0.5s;
-				-ms-transition-delay: 0.5s;
+				
 				transition-delay: 0.5s;
 				opacity: 1;
 			}
@@ -3227,7 +3220,7 @@
 	#nav {
 		-moz-transition: background-color 0.2s ease, border-top-left-radius 0.2s ease, border-top-right-radius 0.2s ease, padding 0.2s ease;
 		-webkit-transition: background-color 0.2s ease, border-top-left-radius 0.2s ease, border-top-right-radius 0.2s ease, padding 0.2s ease;
-		-ms-transition: background-color 0.2s ease, border-top-left-radius 0.2s ease, border-top-right-radius 0.2s ease, padding 0.2s ease;
+	
 		transition: background-color 0.2s ease, border-top-left-radius 0.2s ease, border-top-right-radius 0.2s ease, padding 0.2s ease;
 		background-color: #ffffff;
 		color: #636363;
@@ -3284,7 +3277,6 @@
 			#nav ul li {
 				-moz-transition: margin 0.2s ease;
 				-webkit-transition: margin 0.2s ease;
-				-ms-transition: margin 0.2s ease;
 				transition: margin 0.2s ease;
 				display: inline-block;
 				margin: 0 0.35em;
@@ -3295,7 +3287,6 @@
 				#nav ul li a {
 					-moz-transition: font-size 0.2s ease;
 					-webkit-transition: font-size 0.2s ease;
-					-ms-transition: font-size 0.2s ease;
 					transition: font-size 0.2s ease;
 					display: inline-block;
 					height: 2.25em;
@@ -3310,12 +3301,8 @@
 						background-color: rgba(222, 222, 222, 0.25);
 					}
 
-					#nav ul li a.active {
-						background-color: #ffffff;
-						box-shadow: none;
-					}
-
 		#nav.alt {
+           
 			position: fixed;
 			top: 0;
 			padding: 0.5em 1em;
@@ -3333,7 +3320,24 @@
 					font-size: 0.9em;
 				}
 
-		@media screen and (max-width: 736px) {
+
+
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+
+
+@media screen and (max-width: 600px) {
+
+    #nav {
+        position: absolute;
+        display:block;
+        	max-width: calc(90%);
+            float:left;
+    }
+  
+}
+
+
+		/*@media screen and (max-width: 736px) {
 
 			#nav {
 				display: none;
@@ -3343,7 +3347,7 @@
 					padding-top: 0;
 				}
 
-		}
+		}*/
 
 /* Main */
 

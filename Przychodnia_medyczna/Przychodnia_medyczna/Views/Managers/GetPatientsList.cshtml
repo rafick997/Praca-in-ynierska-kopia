@@ -84,6 +84,7 @@
 
 </table>
 <div>
-    @Html.PagedListPager(Model, page => Url.Action("GetPatientsList", new { page }))
+    @Html.PagedListPager(Model, page => Url.Action("GetPatientsList", new { page, searchBy=Request.QueryString["searchBy"], search=Request.QueryString["search"]}),
+    new PagedListRenderOptions() { Display=PagedListDisplayMode.IfNeeded, DisplayPageCountAndCurrentLocation=true})
 </div>
 

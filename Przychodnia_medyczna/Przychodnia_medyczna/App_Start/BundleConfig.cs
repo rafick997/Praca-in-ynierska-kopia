@@ -5,33 +5,53 @@ namespace Przychodnia_medyczna
 {
     public class BundleConfig
     {
-        // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
+      
         public static void RegisterBundles(BundleCollection bundles)
         {
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                     
-                   
-                     "~/Scripts/jquery.scrollex.min.js",
-                     "~/Scripts/jquery.scrolly.min.js",
-                     "~/Scripts/util.js",
-                     "~/Scripts/chart.min.js",
-                     "~/Scripts/chart-data.js",
-                     "~/Scripts/custom.js",
-                     "~/Scripts/easypiechart.js",
-                     "~/Scripts/easypiechart-data.js",
-                     "~/Scripts/html5shiv.min.js",
-                     "~/Scripts/lumino.glyphs.js",
-                     "~/Scripts/.bootstrap-datepicker",
-                     "~/Scripts/bootstrap.js",
-                     "~/Scripts/bootstrap-datepicker.min.js",
-                     "~/Scripts/respond.js",
-                     "~/Scripts/main.js",
-                      "~/Scripts/transition.min.js"
+
+                "~/Scripts/jquery.scrollex.min.js",
+                "~/Scripts/jquery.scrolly.min.js",
+                "~/Scripts/util.js",
+                "~/Scripts/skel.js",
+                "~/Scripts/main.js"
+                 
+               ));
+            bundles.Add(new ScriptBundle("~/bundles/jquery2").Include(
+
+             "~/Scripts/jquery-1.11.1.min.js",
+              "~/Scripts/custom.js",
+              "~/Scripts/html5shiv.min.js",
+              "~/Scripts/lumino.glyphs.js",
+              "~/Scripts/.bootstrap-datepicker",
+        
+              "~/Scripts/bootstrap-datepicker.min.js",
+              "~/Scripts/respond.js",
+               "~/Scripts/transition.min.js"
+             ));
+
+          //  bundles.Add(new ScriptBundle("~/bundles/jquery2").Include(
+
+          //"~/Scripts/jquery-1.11.1.min.js",
+          // "~/Scripts/jquery.scrollex.min.js",
+          // "~/Scripts/jquery.scrolly.min.js",
+          // "~/Scripts/util.js",
+          // "~/Scripts/custom.js",
+          // "~/Scripts/html5shiv.min.js",
+          // "~/Scripts/lumino.glyphs.js",
+          // "~/Scripts/.bootstrap-datepicker",
+          // "~/Scripts/bootstrap.js",
+          // "~/Scripts/bootstrap-datepicker.min.js",
+          // "~/Scripts/respond.js",
+          // "~/Scripts/main.js",
+          //  "~/Scripts/transition.min.js"
 
 
-                     
-                    ));
+
+          //));
+
+
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate.js"));
@@ -47,10 +67,9 @@ namespace Przychodnia_medyczna
             //          "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/template/Admin/bootstrap.css",
+                      
                       "~/Content/template/Admin/bootstrap.min.css",
                       "~/Content/template/Admin/bootstrap-table.css",
-                      "~/Content/template/Admin/bootstrap-theme.css",
                       "~/Content/template/Admin/bootstrap-theme.min.css",
                       "~/Content/template/Admin/datepicker.css",
                       "~/Content/template/Admin/datepicker3.css",

@@ -548,8 +548,6 @@ if (typeof jQuery === 'undefined') {
 +function ($) {
   'use strict';
 
-  // COLLAPSE PUBLIC CLASS DEFINITION
-  // ================================
 
   var Collapse = function (element, options) {
     this.$element      = $(element)
