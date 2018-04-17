@@ -53,18 +53,20 @@
         <div class="divider"></div>
   
         <ul class="nav menu">
-            <li><a href="@Url.Action("Index","Laboratories")"><span><em class="fa fa-hospital-o">&nbsp;</em> Laboratory</span></a></li>
-            <li><a href="@Url.Action("GetPatients","SuperAdmins")"><span><em class="fa fa-users">&nbsp;</em>All Patients</span></a></li>
-            <li><a href="@Url.Action("RegisterPatient","SuperAdmins")"><span><em class="fa fa-user-plus">&nbsp;</em>Register new patient</span></a></li>
-            <li><a href="@Url.Action("GetManagers","SuperAdmins")"><span>All Managers</span></a></li>
-            <li><a href="@Url.Action("RegisterManager","SuperAdmins")"><span>Register new manager</span></a></li>
+            <li><a href="@Url.Action("Index","Laboratories")"><span><em class="fa fa-hospital-o">&nbsp;</em> Laboratorium</span></a></li>
+            <li><a href="@Url.Action("GetPatients","SuperAdmins")"><span><em class="fa fa-users">&nbsp;</em>Pacjenci</span></a></li>
+            <li><a href="@Url.Action("RegisterPatient","SuperAdmins")"><span><em class="fa fa-user-plus">&nbsp;</em>Rejestracja pacjenta</span></a></li>
+            <li><a href="@Url.Action("GetManagers","SuperAdmins")"><span>Personel</span></a></li>
+            <li><a href="@Url.Action("RegisterManager","SuperAdmins")"><span>Rodzaje badań</span></a></li>
+            <li><a href="@Url.Action("Create","TestTypes1")"><span><em class="fas fa-list-alt">&nbsp;</em>Dodaj kolejne badanie</span></a></li>
+
            
             @if (Request.IsAuthenticated)
             {
                 using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
                 {
                     @Html.AntiForgeryToken()
-                    <li><a href="javascript:document.getElementById('logoutForm').submit()"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
+                    <li><a href="javascript:document.getElementById('logoutForm').submit()"><em class="fa fa-power-off">&nbsp;</em> Wyloguj</a></li>
                 }
             }
         </ul>

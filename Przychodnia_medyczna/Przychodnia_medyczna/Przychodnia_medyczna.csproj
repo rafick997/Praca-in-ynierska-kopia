@@ -211,7 +211,7 @@
     <Compile Include="Controllers\PatientsController.cs" />
     <Compile Include="Controllers\PatientTestsController.cs" />
     <Compile Include="Controllers\SuperAdminsController.cs" />
-    <Compile Include="Controllers\TestResultsController.cs" />
+    <Compile Include="Controllers\TestTypes1Controller.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -234,6 +234,10 @@
     <Compile Include="Migrations\201712291241068_iuy.cs" />
     <Compile Include="Migrations\201712291241068_iuy.Designer.cs">
       <DependentUpon>201712291241068_iuy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801031108090_TG1.cs" />
+    <Compile Include="Migrations\201801031108090_TG1.Designer.cs">
+      <DependentUpon>201801031108090_TG1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -391,11 +395,6 @@
     <Content Include="Views\Managers\GetPatientsList.cshtml" />
     <Content Include="Views\Managers\AddTestResult.cshtml" />
     <Content Include="Views\SuperAdmins\RegisterManager.cshtml" />
-    <Content Include="Views\TestResults\Create.cshtml" />
-    <Content Include="Views\TestResults\Delete.cshtml" />
-    <Content Include="Views\TestResults\Details.cshtml" />
-    <Content Include="Views\TestResults\Edit.cshtml" />
-    <Content Include="Views\TestResults\Index.cshtml" />
     <Content Include="Views\Patients\Delete.cshtml" />
     <Content Include="Views\Patients\Index.cshtml" />
     <Content Include="Views\Patients\GetTestResults.cshtml" />
@@ -405,16 +404,16 @@
     <Content Include="Views\Laboratories\Details.cshtml" />
     <Content Include="Views\Laboratories\Edit.cshtml" />
     <Content Include="Views\Laboratories\Index.cshtml" />
-    <Content Include="Views\Patients1\Create.cshtml" />
-    <Content Include="Views\Patients1\Delete.cshtml" />
-    <Content Include="Views\Patients1\Details.cshtml" />
-    <Content Include="Views\Patients1\Edit.cshtml" />
-    <Content Include="Views\Patients1\Index.cshtml" />
     <Content Include="Views\PatientTests\Create.cshtml" />
     <Content Include="Views\PatientTests\Delete.cshtml" />
     <Content Include="Views\PatientTests\Details.cshtml" />
     <Content Include="Views\PatientTests\Edit.cshtml" />
     <Content Include="Views\PatientTests\Index.cshtml" />
+    <Content Include="Views\TestTypes1\Create.cshtml" />
+    <Content Include="Views\TestTypes1\Delete.cshtml" />
+    <Content Include="Views\TestTypes1\Details.cshtml" />
+    <Content Include="Views\TestTypes1\Edit.cshtml" />
+    <Content Include="Views\TestTypes1\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -443,6 +442,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712291241068_iuy.resx">
       <DependentUpon>201712291241068_iuy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801031108090_TG1.resx">
+      <DependentUpon>201801031108090_TG1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
