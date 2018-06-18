@@ -1,4 +1,4 @@
-﻿@model Przychodnia_medyczna.Models.PatientTest
+﻿@model Przychodnia_medyczna.Models.TestGroup
 
 @{
     ViewBag.Title = "Details";
@@ -8,20 +8,20 @@
 <h2>Details</h2>
 
 <div>
-    <h4>PatientTest</h4>
+    <h4>TestGroup</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.TestName)
+            @Html.DisplayNameFor(model => model.GroupName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.TestName)
+            @Html.DisplayFor(model => model.GroupName)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.TestId }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TestGroupId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

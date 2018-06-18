@@ -209,9 +209,10 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ManagersController.cs" />
     <Compile Include="Controllers\PatientsController.cs" />
-    <Compile Include="Controllers\PatientTestsController.cs" />
     <Compile Include="Controllers\SuperAdminsController.cs" />
-    <Compile Include="Controllers\TestTypes1Controller.cs" />
+    <Compile Include="Controllers\TestElementsController.cs" />
+    <Compile Include="Controllers\TestGroupsController.cs" />
+    <Compile Include="Controllers\TestUnitsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -239,9 +240,18 @@
     <Compile Include="Migrations\201801031108090_TG1.Designer.cs">
       <DependentUpon>201801031108090_TG1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806171135443_zmianastruktury.cs" />
+    <Compile Include="Migrations\201806171135443_zmianastruktury.Designer.cs">
+      <DependentUpon>201806171135443_zmianastruktury.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806171215063_zmiany.cs" />
+    <Compile Include="Migrations\201806171215063_zmiany.Designer.cs">
+      <DependentUpon>201806171215063_zmiany.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\ddlElement.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Laboratory.cs" />
     <Compile Include="Models\Manager.cs" />
@@ -251,9 +261,8 @@
     <Compile Include="Models\SuperAdmin.cs" />
     <Compile Include="Models\TestElements.cs" />
     <Compile Include="Models\TestGroups.cs" />
-    <Compile Include="Models\TestType.cs" />
-    <Compile Include="Models\TestUnits.cs" />
-    <Compile Include="Models\TestValue.cs" />
+    <Compile Include="Models\TestUnit.cs" />
+    <Compile Include="Models\PatientTestValue.cs" />
     <Compile Include="Models\userManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -372,7 +381,6 @@
     <Content Include="Views\SuperAdmins\RegisterPatient.cshtml" />
     <Content Include="Views\SuperAdmins\CreateTestGroup.cshtml" />
     <Content Include="Views\SuperAdmins\DeleteTestGroup.cshtml" />
-    <Content Include="Views\SuperAdmins\EditTestGroup.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\SuperAdmins\fonts\fontawesome-webfont.eot" />
     <Content Include="Views\SuperAdmins\fonts\fontawesome-webfont.ttf" />
@@ -404,16 +412,32 @@
     <Content Include="Views\Laboratories\Details.cshtml" />
     <Content Include="Views\Laboratories\Edit.cshtml" />
     <Content Include="Views\Laboratories\Index.cshtml" />
-    <Content Include="Views\PatientTests\Create.cshtml" />
-    <Content Include="Views\PatientTests\Delete.cshtml" />
-    <Content Include="Views\PatientTests\Details.cshtml" />
-    <Content Include="Views\PatientTests\Edit.cshtml" />
-    <Content Include="Views\PatientTests\Index.cshtml" />
-    <Content Include="Views\TestTypes1\Create.cshtml" />
-    <Content Include="Views\TestTypes1\Delete.cshtml" />
-    <Content Include="Views\TestTypes1\Details.cshtml" />
-    <Content Include="Views\TestTypes1\Edit.cshtml" />
-    <Content Include="Views\TestTypes1\Index.cshtml" />
+    <Content Include="Views\SuperAdmins\DeletePatient.cshtml" />
+    <Content Include="Views\SuperAdmins\EditPatientData.cshtml" />
+    <Content Include="Views\TestGroups\Create.cshtml" />
+    <Content Include="Views\TestGroups\Delete.cshtml" />
+    <Content Include="Views\TestGroups\Details.cshtml" />
+    <Content Include="Views\TestGroups\Edit.cshtml" />
+    <Content Include="Views\TestGroups\GetTestGroupList.cshtml" />
+    <Content Include="Views\TestElements\Create.cshtml" />
+    <Content Include="Views\TestElements\Delete.cshtml" />
+    <Content Include="Views\TestElements\Details.cshtml" />
+    <Content Include="Views\TestElements\Edit.cshtml" />
+    <Content Include="Views\TestElements\GetTestElementList.cshtml" />
+    <Content Include="Views\TestUnits\Create.cshtml" />
+    <Content Include="Views\TestUnits\Delete.cshtml" />
+    <Content Include="Views\TestUnits\Edit.cshtml" />
+    <Content Include="Views\TestUnits\GetTestUnitList.cshtml" />
+    <Content Include="Views\PatientTestValues\Create.cshtml" />
+    <Content Include="Views\PatientTestValues\Delete.cshtml" />
+    <Content Include="Views\PatientTestValues\Details.cshtml" />
+    <Content Include="Views\PatientTestValues\Edit.cshtml" />
+    <Content Include="Views\PatientTestValues\Index.cshtml" />
+    <Content Include="Views\Shared\_CreatePatientTestResult.cshtml" />
+    <Content Include="Views\SuperAdmins\AddTestResult.cshtml" />
+    <Content Include="Views\SuperAdmins\AddTestResultForPatient.cshtml" />
+    <Content Include="Views\Shared\_CreateTestElement.cshtml" />
+    <Content Include="Views\SuperAdmins\ChooseTestGroup.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -445,6 +469,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801031108090_TG1.resx">
       <DependentUpon>201801031108090_TG1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806171135443_zmianastruktury.resx">
+      <DependentUpon>201806171135443_zmianastruktury.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806171215063_zmiany.resx">
+      <DependentUpon>201806171215063_zmiany.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

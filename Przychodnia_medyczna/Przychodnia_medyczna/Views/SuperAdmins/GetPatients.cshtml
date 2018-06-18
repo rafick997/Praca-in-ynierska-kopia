@@ -53,9 +53,10 @@
             @Html.DisplayFor(modelItem => item.PESEL)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ApplicationUser.Id}) |
-            @Html.ActionLink("Details", "Details", new { id = item.ApplicationUser.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.ApplicationUser.Id })
+            @Html.ActionLink("DodajBadanie", "AddTestResult", new { id = item.ApplicationUser.Id }) |
+            @Html.ActionLink("Edytuj", "Edit", new { id=item.ApplicationUser.Id}) |
+            @Html.ActionLink("Dane", "Details", new { id = item.ApplicationUser.Id }) |
+            @Html.ActionLink("Usuń", "DeletePatient", new { id = item.ApplicationUser.Id })
         </td>
     </tr>
 }

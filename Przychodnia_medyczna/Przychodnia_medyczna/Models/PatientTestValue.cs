@@ -7,17 +7,20 @@ using System.Web;
 
 namespace Przychodnia_medyczna.Models
 {
-    public class TestType
+    public class PatientTestValue
     {
         [Key]
-        public int TestTypeId { get; set; }
+        public int TestValueId { get; set; }
 
         [ForeignKey("PatientTest")]
         public int TestId { get; set; }
 
-        public string Name { get; set; }
+        [ForeignKey("TestElements")]
+        public int TeElementId { get; set; }
 
-        public virtual ICollection<TestElement> Elements { get; set; }
+        public float Value { get; set; }
+       
         public virtual PatientTest PatientTest { get; set; }
+        public virtual ICollection<TestElement> TestElements { get; set; } 
     }
 }

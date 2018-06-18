@@ -202,6 +202,41 @@ namespace Przychodnia_medyczna.Controllers
         // POST: Laboratories/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+
+        [Authorize(Roles = "SuperAdmin")]
+        public ActionResult EditPatientData(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
+            }
+            Patient patient = db.Patients.Find(id.ToString());
+            if (patient == null)
+            {
+                return HttpNotFound();
+            }
+            return View(patient);
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "SuperAdmin")]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditPatientData( Patient patient)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(patient).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("GetPatients");
+            }
+            return View(patient);
+        }
+
+
+
+        // POST: Laboratories/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [Authorize(Roles = "SuperAdmin")]
         [ValidateAntiForgeryToken]
@@ -224,6 +259,102 @@ namespace Przychodnia_medyczna.Controllers
             }
             base.Dispose(disposing);
         }
+        // GET: SuperAdmin/DeletePatient/5
+        public ActionResult DeletePatient(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
+            }
+            Patient patient = db.Patients.Find(id.ToString());
+            if (patient == null)
+            {
+                return HttpNotFound();
+            }
+            return View(patient);
+        }
+        [HttpGet]
+        [Authorize(Roles = "SuperAdmin")]
+        public ActionResult AddTestResult()
+        {
+            ViewBag.TestGroupId = new SelectList(db.TestGroups, "TestGroupId", "GroupName");
+            return View();
+        }
+        [HttpPost]
+        [Authorize(Roles = "SuperAdmin")]
+        public ActionResult AddTestResult(ddlElement ddlElement)
+        {
 
+
+            int id = ddlElement.SelectedId;
+            List<TestElement> testElements = new List<TestElement>();
+            List<PatientTestValue> patientTestValues = new List<PatientTestValue>();
+            testElements = db.TestElements.Where(e => e.TestGroupId == id).ToList();
+            foreach( var tElement in testElements)
+            {
+                PatientTestValue tValue = new PatientTestValue();
+                patientTestValues.Add(tValue);
+            }
+            TestGroup testGroup = new TestGroup();
+            testGroup.TestGroupId = id;
+
+            return View(patientTestValues);
+
+        }
+
+        [Authorize(Roles = "SuperAdmin")]
+        public ActionResult ChooseTestGroup(IEnumerable<PatientTestValue> patientTestValues)
+        {
+            return View(patientTestValues);
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "SuperAdmin")]
+        public ActionResult ChooseTestGroup(ddlElement ddlElement)
+        {
+
+
+            int id = ddlElement.SelectedId;
+            List<TestElement> testElement = new List<TestElement>();
+            testElement = db.TestElements.Where(e => e.TestGroupId == id).ToList();
+            TestGroup testGroup = new TestGroup();
+            testGroup.TestGroupId = id;
+
+
+            return View();
+        }
+
+        // POST: TestElements/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        //[HttpPost]
+        //[Authorize(Roles = "SuperAdmin")]
+        //public ActionResult AddTestResult(IEnumerable<PatientTestValue> patientTestValues)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        foreach (var patientTestValue in patientTestValues)
+        //            db.PatientTestValues.Add(patientTestValue);
+        //        db.SaveChanges();
+        //        return RedirectToAction("GetTestElementList", "TestElements");
+        //    }
+
+        //    return View(patientTestValues);
+        //}
+
+
+        // POST: SuperAdmin/DeletePatient/5
+        [HttpPost, ActionName("DeletePatient")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Patient patient = db.Patients.Find(id.ToString());
+            Address patientAdress = db.Addresses.Find(id.ToString());
+            db.Addresses.Remove(patientAdress);
+            db.Patients.Remove(patient);
+            
+            db.SaveChanges();
+            return RedirectToAction("GetPatients", "SuperAdmins");
+        }
     }
 }

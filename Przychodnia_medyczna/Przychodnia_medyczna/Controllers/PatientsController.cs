@@ -40,22 +40,6 @@ namespace Przychodnia_medyczna.Controllers
             return View();
         }
 
-        // POST: Patients/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Create([Bind(Include = "Id,Email,EmailConfirmed,PasswordHash,SecurityStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEndDateUtc,LockoutEnabled,AccessFailedCount,UserName,Name,LastName,LaboratoryId,Role,PESEL,ContactNumber,AddressId")] Patient patient)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        db.Users.Add(patient);
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
-
-        //    return View(patient);
-        //}
 
         public ActionResult Edit(string id)
         {
@@ -63,7 +47,7 @@ namespace Przychodnia_medyczna.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Patient patient = db.Patients.Find(id);
+            Patient patient = db.Patients.Find(id.ToString());
             if (patient == null)
             {
                 return HttpNotFound();
@@ -71,9 +55,7 @@ namespace Przychodnia_medyczna.Controllers
             return View(patient);
         }
 
-        // POST: Patients/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Email,EmailConfirmed,PasswordHash,SecurityStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEndDateUtc,LockoutEnabled,AccessFailedCount,UserName,Name,LastName,LaboratoryId,Role,PESEL,ContactNumber,AddressId")] Patient patient)

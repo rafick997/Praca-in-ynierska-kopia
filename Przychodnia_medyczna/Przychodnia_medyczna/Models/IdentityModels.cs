@@ -51,11 +51,11 @@ namespace Przychodnia_medyczna.Models
         public DbSet<Manager> Managers { get; set; }
         public DbSet<PatientTest> PatientTests { get; set; }
         public DbSet<TestGroup> TestGroups { get; set; }
-        public DbSet<TestValue> TestValues { get; set; }
-        public DbSet<TestType> TestTypes { get; set; }
         public DbSet<TestElement> TestElements { get; set; }
-        public DbSet <TestUnit> TestUnits { get; set; }
-        
+
+        public DbSet<TestUnit> TestUnits { get; set; }
+        public DbSet<PatientTestValue> PatientTestValues { get; set; }
+
         public DbSet<Address> Addresses { get; set; }
         
 
@@ -64,10 +64,6 @@ namespace Przychodnia_medyczna.Models
             return new ApplicationDbContext();
         }
 
-
-       
-
-   
-        
+        public System.Data.Entity.DbSet<Przychodnia_medyczna.Models.PatientRegisterModel> PatientRegisterModels { get; set; }
     }
 }

@@ -11,6 +11,8 @@ namespace Przychodnia_medyczna.Models
         [Key]
         public int TestGroupId { get; set; }
 
-        public ICollection<TestUnit> Units { get; set; }
+        public string GroupName { get; set; }
+
+        public virtual ICollection <TestElement> TestElements { get; set; }
     }
 }

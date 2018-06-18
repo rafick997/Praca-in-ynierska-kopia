@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Przychodnia_medyczna.Models.TestElement>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TestGroup.GroupName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TestUnit.UnitName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MinValue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaxValue)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TestGroup.GroupName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TestUnit.UnitName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MinValue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaxValue)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TestElementId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TestElementId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TestElementId })
+        </td>
+    </tr>
+}
+
+</table>

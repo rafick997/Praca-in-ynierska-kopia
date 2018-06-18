@@ -1,0 +1,51 @@
+﻿@model Przychodnia_medyczna.Models.TestElement
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TestElement</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TestGroup.GroupName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TestGroup.GroupName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TestUnit.UnitName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TestUnit.UnitName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MinValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MinValue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaxValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaxValue)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TestElementId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

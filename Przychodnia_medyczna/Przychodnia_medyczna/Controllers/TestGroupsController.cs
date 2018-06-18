@@ -10,110 +10,96 @@ using Przychodnia_medyczna.Models;
 
 namespace Przychodnia_medyczna.Controllers
 {
-    public class PatientTestsController : Controller
+    public class TestGroupsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: PatientTests
-        public ActionResult Index()
+        // GET: TestGroups
+        public ActionResult GetTestGroupList()
         {
-            db.TestGroups.Include(p => p.TestGroupId).ToList();
-            return View(db.PatientTests.ToList());
+            return View(db.TestGroups.ToList());
         }
 
-        // GET: PatientTests/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            PatientTest patientTest = db.PatientTests.Find(id);
-            if (patientTest == null)
-            {
-                return HttpNotFound();
-            }
-            return View(patientTest);
-        }
 
-        // GET: PatientTests/Create
+
+        // GET: TestGroups/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: PatientTests/Create
+        // POST: TestGroups/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TestId,TestName")] PatientTest patientTest)
+        public ActionResult Create([Bind(Include = "TestGroupId,GroupName")] TestGroup testGroup)
         {
             if (ModelState.IsValid)
             {
-                db.PatientTests.Add(patientTest);
+                db.TestGroups.Add(testGroup);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("GetTestGroupList", "TestGroups");
             }
 
-            return View(patientTest);
+            return View(testGroup);
         }
 
-        // GET: PatientTests/Edit/5
+        // GET: TestGroups/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PatientTest patientTest = db.PatientTests.Find(id);
-            if (patientTest == null)
+            TestGroup testGroup = db.TestGroups.Find(id);
+            if (testGroup == null)
             {
                 return HttpNotFound();
             }
-            return View(patientTest);
+            return View(testGroup);
         }
 
-        // POST: PatientTests/Edit/5
+        // POST: TestGroups/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TestId,TestName")] PatientTest patientTest)
+        public ActionResult Edit([Bind(Include = "TestGroupId,GroupName")] TestGroup testGroup)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(patientTest).State = EntityState.Modified;
+                db.Entry(testGroup).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("GetTestGroupList", "TestGroups");
             }
-            return View(patientTest);
+            return View(testGroup);
         }
 
-        // GET: PatientTests/Delete/5
+        // GET: TestGroups/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PatientTest patientTest = db.PatientTests.Find(id);
-            if (patientTest == null)
+            TestGroup testGroup = db.TestGroups.Find(id);
+            if (testGroup == null)
             {
                 return HttpNotFound();
             }
-            return View(patientTest);
+            return View(testGroup);
         }
 
-        // POST: PatientTests/Delete/5
+        // POST: TestGroups/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            PatientTest patientTest = db.PatientTests.Find(id);
-            db.PatientTests.Remove(patientTest);
+            TestGroup testGroup = db.TestGroups.Find(id);
+            db.TestGroups.Remove(testGroup);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("GetTestGroupList", "TestGroups");
         }
 
         protected override void Dispose(bool disposing)

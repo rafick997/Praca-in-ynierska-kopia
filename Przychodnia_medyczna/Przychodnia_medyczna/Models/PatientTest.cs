@@ -11,15 +11,15 @@ namespace Przychodnia_medyczna.Models
     {
         [Key]
         public int TestId { get; set; }
-
-        public string TestName { get; set; }
-
         [ForeignKey("Patient")]
         public string PatientId { get; set; }
 
+        public string CreateUser { get; set; }
+        public DateTime CreteDate { get; set; }
 
         public virtual Patient Patient { get; set; }
-        public virtual ICollection<TestValue> TestValues { get; set; }
-        public virtual ICollection<TestType> TestTypes { get; set; }//edit
+        public virtual ICollection<PatientTestValue> PatientTestValues { get; set; }
+
+
     }
 }
